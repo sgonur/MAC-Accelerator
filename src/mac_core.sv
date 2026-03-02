@@ -5,7 +5,8 @@ module mac_core (
     input  end_bit,
     input [3:0] a_i,
     input [3:0] b_i,
-    output wire [7:0] c_o
+    output wire [7:0] c_o,
+    output wire done_bit
 );
     // FSM Stuff
     logic [2:0] state;
@@ -62,6 +63,6 @@ module mac_core (
         end
     end
 
-    assign done = (state == DONE);
+    assign done_bit = (state == DONE);
 
 endmodule

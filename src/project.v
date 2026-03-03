@@ -27,9 +27,9 @@ module tt_um_example (
       .clk(clk),
       .rst_n(rst_n),
       .start_bit(start_bit),
-      .A_in(A_in),
-      .B_in(B_in),
-      .result(result),
+      .a_i(A_in),
+      .b_i(B_in),
+      .c_o(result),
       .done_bit(done_bit)
   );
 

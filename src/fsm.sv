@@ -1,9 +1,9 @@
 module fsm (
-    input logic clk,
-    input logic rst_n,
-    input logic start_bit,
-    input logic [1:0] count,
-    ouput logic [2:0] state_change
+    input clk,
+    input rst_n,
+    input start_bit,
+    input [1:0] count,
+    output wire [2:0] state
 );
     typedef enum logic [2:0] {
         IDLE, LOAD, COMPUTE, DONE
@@ -36,7 +36,7 @@ module fsm (
 
             COMPUTE : begin
                 // Only go to DONE if the 4 calculations are done
-                if (count == 3)
+                if (count == 2'd3)
                     nextState = DONE;
                 else 
                     nextState = COMPUTE;
@@ -51,9 +51,6 @@ module fsm (
         endcase
     end
 
-    // Debug logic
-    always_comb begin
-        state_change = currentState;
-    end
+    assign state = currentState;
 
 endmodule

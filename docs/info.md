@@ -1,15 +1,9 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
 ## How it works
 
-The goal of this project is to implement a bit serial multiply-accumulate (MAC) which is controlled by a Finte State Machine (FSM). It has two 4 bit inputs (A and B) and outputs a max of a 8 bit number. 
+This project implements a **bit-serial Multiply–Accumulate (MAC) unit** controlled by a **Finite State Machine (FSM)**.
+
+The design accepts two **4-bit unsigned operands** and produces an **8-bit accumulated result**. To minimize hardware area, the multiplication is performed serially, processing **one bit of the multiplier per cycle**, and reusing a single adder datapath across cycles.
+
 Algorithm:
     Step 1: If the LSB of B is equal to 1 add A to ACC
     Step 2: Shift A left by 1
@@ -20,10 +14,15 @@ Algorithm:
 
 The design is verfied using cocotb which is a python library that is used to test Verilog code. I use the random library in python to assign inputs A and B a value and perform multiplication to test it against the design. I do this test 20 times. 
 
-To test my design, go into the test folder and run make. This will run the 20 random tests.
-Step 1: cd test
-Step 2: make
+To run the RTL simulation:
+
+```bash
+cd test
+make
+```
 
 ## External hardware
-
 N/A
+
+## Use of GenAI Tools
+I used GenAI to help me get the idea for the project and also help me with the algorithm. GenAI also helped with designing the fsm and debugging a bit of the code. All AI suggestions were checked by me before usiong them.

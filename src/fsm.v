@@ -19,8 +19,7 @@ module fsm (
 		else
 			currentState <= nextState;
 	always @(*) begin
-		if (_sv2v_0)
-			;
+		nextState = 3'd0;
 		case (currentState)
 			3'd0:
 				if (start_bit)

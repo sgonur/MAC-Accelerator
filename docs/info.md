@@ -4,11 +4,13 @@ This project implements a **bit-serial Multiply–Accumulate (MAC) unit** contro
 
 The design accepts two **4-bit unsigned operands** and produces an **8-bit accumulated result**. To minimize hardware area, the multiplication is performed serially, processing **one bit of the multiplier per cycle**, and reusing a single adder datapath across cycles.
 
-Algorithm:
-    Step 1: If the LSB of B is equal to 1 add A to ACC
-    Step 2: Shift A left by 1
-    Step 3: Shift B right by 1
-    Step 4: Repeat until all bits are proccessed
+### Algorithm
+
+1. Check the least significant bit of **B**  
+   - If `B[0] == 1`, add **A** to the accumulator (**ACC**)
+2. Shift **A** left by one bit
+3. Shift **B** right by one bit
+4. Repeat until all bits of **B** have been processed
 
 ## How to test
 
